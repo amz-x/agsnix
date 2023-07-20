@@ -1,0 +1,13 @@
+# Hidden Directories
+.vscode
+
+# Hidden files
+.editorconfig
+.gitignore
+
+# Directories
+dist
+node_modules
+
+# Files
+README.md

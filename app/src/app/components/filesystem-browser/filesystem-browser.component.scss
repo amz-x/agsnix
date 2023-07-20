@@ -1,0 +1,70 @@
+
+
+header {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  margin-bottom: 0;
+  border: 0;
+  border-radius: 0;
+  color: #fff;
+
+  nav {
+    position: sticky;
+    height: 100%;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    min-height: 4em;
+
+    button {
+      width: 100%;
+    }
+
+    b {
+      line-height: 2em;
+    }
+  }
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  background-color: #212529;
+  border-top: 1px solid #fff;
+  max-height: calc(100vh - 63px);
+  overflow: scroll;
+  table {
+    thead, thead > tr, thead > tr > th {
+      position: sticky !important;
+      top: 1px !important;  /* 0px if you don't have a navbar, but something is required */
+      background: #212529;
+    }
+    tbody {
+      tr {
+        &.m-dir {
+          &:not(.m-readable) {
+            cursor: not-allowed;
+            td {
+              color: #dc3545 !important;
+            }
+          }
+          &.m-readable {
+            cursor: pointer;
+            td {
+              color: #fff !important;
+            }
+          }
+        }
+      }
+    }
+  }
+
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  min-height: 0em;
+  background-color: #212529;
+}

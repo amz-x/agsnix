@@ -1,0 +1,15 @@
+{
+	"name": "agsnix",
+	"version": "0.1.0",
+	"private": "true",
+	"scripts": {
+		"api:dev": "npm run start --prefix api",
+		"api:build": "npm run build --prefix app",
+		"app:dev": "npm run start --prefix app",
+		"app:build": "npm run build --prefix app"
+	},
+	"dependencies": {
+		"@angular/cli": "16.1.4",
+		"@nestjs/cli": "10.1.8"
+	}
+}

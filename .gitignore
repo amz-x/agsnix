@@ -1,0 +1,6 @@
+# Nix
+.devenv/*
+.direnv/*
+
+# Node.js
+node_modules

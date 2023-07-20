@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  # Node.js API
+  API:
+    build: ./api
+    image: "amz-x:agsnix-api"
+    environment:
+      NODE_ENV: production
+      API_HOST_MOUNT_DIR: "/home"
+    ports:
+      - "3000:3000"
+    expose:
+      - "3000"
+    volumes:
+      - /home:/host:ro
+
+  # Angular App
+  APP:
+    build: ./app
+    image: "amz-x:agsnix-app"
+    environment:
+      NODE_ENV: production
+    ports:
+      - "4200:4200"
+    expose:
+      - "4200"

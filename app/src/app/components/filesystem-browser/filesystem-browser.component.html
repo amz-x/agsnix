@@ -1,0 +1,63 @@
+
+<header>
+
+  <nav class="navbar-dark bg-dark box-shadow">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xl-1 col-lg-2 col-md-3 col-sm-3 col-2">
+          <button type="button" class="btn btn-secondary {{ goBackDisabled ? 'disabled' : '' }}" (click)="onButtonBackClick(options.directoryPath)">
+            &lt; <span class="d-none d-sm-inline">Back</span>
+          </button>
+        </div>
+        <div class="col-xl-11 col-lg-10 col-md-9 col-sm-9 col-10">
+          <div class="navbar-brand d-flex justify-content-start align-items-center text-center pt-1 pb-1">
+            <b>Path: {{ options.directoryPath }}</b>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main class="container-fluid mt-0">
+  <div class="row">
+    <div *ngIf="loading" class="d-flex justify-content-center my-5">
+      <div class="spinner-border text-white" style="width: 3rem; height: 3rem;" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+    <table *ngIf="!loading" class="table table-dark table-striped table-hover">
+      <thead class="position-sticky">
+        <tr>
+          <th colspan="3">Name</th>
+          <th colspan="4" class="d-none d-md-table-cell">Path</th>
+          <th colspan="1">Type</th>
+          <th colspan="1">Size</th>
+          <th colspan="1" class="d-none d-md-table-cell">Read</th>
+          <th colspan="1" class="d-table-cell d-md-none">R</th>
+          <th colspan="1" class="d-none d-md-table-cell">Write</th>
+          <th colspan="1" class="d-table-cell d-md-none">W</th>
+          <th colspan="1" class="d-none d-md-table-cell">Execute</th>
+          <th colspan="1" class="d-table-cell d-md-none">X</th>
+          <th colspan="2">Created Date</th>
+          <th colspan="2">Modified Date</th>
+        </tr>
+      </thead>
+      <tbody *ngIf="fileSystemItems.length > 0">
+        <tr *ngFor="let item of fileSystemItems" class="m-{{ item.type }} {{ item.read ? 'm-readable' : ''}}" (click)="onItemClick(item)">
+          <td colspan="3">{{ item.name }}</td>
+          <td colspan="4" class="d-none d-md-table-cell">{{ item.path }}</td>
+          <td colspan="1">{{ item.type == 'dir' ? 'Directory' : ('File ' + item.mime) }}</td>
+          <td colspan="1">{{ item.size || 'N/A' }}</td>
+          <td colspan="1">{{ item.read ? 'Y' : 'N' }}</td>
+          <td colspan="1">{{ item.write ? 'Y' : 'N' }}</td>
+          <td colspan="1">{{ item.execute ? 'Y' : 'N' }}</td>
+          <td colspan="2">{{ item.createdAt || 'N/A' }}</td>
+          <td colspan="2">{{ item.modifiedAt || 'N/A' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</main>
+
+<footer class="container-fluid"></footer>

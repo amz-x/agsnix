@@ -1,0 +1,38 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+directive @upper on FIELD_DEFINITION
+
+"""Date custom scalar type"""
+scalar Date
+
+"""fileSystemItem"""
+type FileSystemItem {
+  createdAt: Date
+  execute: Boolean
+  mime: String
+  modifiedAt: Date
+  name: String
+  path: String
+  read: Boolean
+  size: Float
+  type: String
+  write: Boolean
+}
+
+"""FileSystemPathNotifier"""
+type FileSystemPathNotifier {
+  action: String!
+  path: String!
+  result: FileSystemItem
+}
+
+type Query {
+  getInitialDirectoryPath: FileSystemItem!
+  getPathDirectoriesAndFiles(directoryPath: String!, limit: Float): [FileSystemItem!]!
+}
+
+type Subscription {
+  fileSystemPathNotifier: FileSystemPathNotifier!
+}
