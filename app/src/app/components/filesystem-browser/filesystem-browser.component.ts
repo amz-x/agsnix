@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Apollo, gql } from 'apollo-angular';
-import { Query, FileSystemItem, FileSystemItemExtended } from '../../types';
+import { Query, FileSystemItem, FileSystemItemExtended, Subscription } from '../../types';
 import { formatFileSize } from 'src/utils';
 
 @Component({

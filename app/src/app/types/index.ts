@@ -15,9 +15,19 @@ export type FileSystemItemExtended = FileSystemItem & {
   size: string;
   createdAt: string;
   modifiedAt: string;
-}
+};
+
+export type FileSystemPathNotifier = {
+  path: string;
+  action: string;
+  result: FileSystemItem | null;
+};
 
 export type Query = {
   getInitialDirectoryPath: FileSystemItem;
   getPathDirectoriesAndFiles: FileSystemItem[];
+};
+
+export type Subscription = {
+  fileSystemPathNotifier: FileSystemPathNotifier;
 };
